@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    </head>
+<body>
+    <script>
+        const array = [10, 20, 15, 3, 25, 18];
+        const result = findTwoMaxElements(array);
+        function findTwoMaxElements(arr) {
+  if (arr.length < 2) {
+    return { sum: null, indices: null }; 
+  }
+
+  let firstMax = -Infinity, secondMax = -Infinity;
+  let firstIndex = -1, secondIndex = -1;
+
+  // Traverse the array to find the largest and second largest elements.
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > firstMax) {
+     
+      secondMax = firstMax;
+      secondIndex = firstIndex;
+
+     
+      firstMax = arr[i];
+      firstIndex = i;
+    } else if (arr[i] > secondMax) {
+      
+      secondMax = arr[i];
+      secondIndex = i;
+    }
+  }
+
+  return {
+    sum: firstMax + secondMax,
+    indices: [firstIndex, secondIndex],
+  };
+}
+if (result.sum !== null) {
+  console.log("Sum of two largest elements:", result.sum); // Output: 45
+  console.log("Indices of the two largest elements:", result.indices); // Output: [4, 1]
+} else {
+  console.log("Array does not have enough elements.");
+}
+
+
+    </script>
+</body>
+</html>
